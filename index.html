@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<!-- informações do site todas dentro do head-->
+    <meta charset="UTF-8">
+
+    <!-- meta name viewport é uma tag HTML que permite controlar o layout e a escala de uma página da web em diferentes dispositivos, como desktops, tablets e smartphones. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Tainá Franzoi</title>
+
+    <!-- conecta meu arquivo CSS ao HTML -->
+    <link rel="stylesheet" href="style.css"> 
+
+    <!-- conecta as fontes do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+
+</head>
+
+<!-- É onde fica todo o conteúdo visível do site, como textos, imagens, vídeos e links. -->
+<body>
+
+    <div class="background-animado"></div>
+
+<!-- cabeçalho do site, onde fica o menu de navegação e a class cabecalho serve para conseguir estilizar esse elemento no CSS-->
+    <header class="cabecalho">
+    
+<!-- div é um elemento de contêiner usado para agrupar outros elementos HTML e aplicar estilos ou scripts a eles. A class cabecalho-conteudo serve para 
+conseguir estilizar esse elemento no CSS-->
+
+        <div class="cabecalho-conteudo">
+
+<!-- link para a página inicial do site, com a class logo serve para conseguir estilizar esse elemento no CSS, <a> = cria um link.href="index.html" = diz para onde 
+o link vai, class="logo" = permite estilizar no CSS, Tainá Franzoi = texto que aparece.-->
+
+            <a href="index.html" class="logo">Tainá Franzoi</a>
+            
+<!-- menu de navegação do site, com a class menu serve para conseguir estilizar esse elemento no CSS, <nav> = cria um menu de navegação, 
+<a> = cria um link.href="index.html" = diz para onde o link vai, class="ativo" = permite estilizar no CSS, Início = texto que aparece,
+class="ativo" serve para indicar qual página está aberta no momento. Por exemplo, na página inicial, Início fica ativo.-->
+
+            <nav class="menu">
+                <a href="index.html" class="ativo"> Início</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="contato.html">Contato</a>
+            </nav>
+
+<!-- botões de ação no cabeçalho -->
+
+            <div class="cabecalho-acoes">
+<!-- botão para alternar entre o modo claro e escuro do site, com a class botao-tema serve para conseguir estilizar esse elemento no CSS, <button> = cria um botão,
+class="botao-tema" = permite estilizar no CSS, 🌙 = ícone de lua que aparece no botão.-->
+
+                <button class="botao-tema">🌙</button>
+
+<!-- botão de menu hamburguer, com a class botao-hamburguer serve para conseguir estilizar esse elemento no CSS, <button> = cria um botão,Esse é o botão do menu hambúrguer,
+ normalmente usado em telas menores, como celular. -->
+               
+                <button class="botao-hamburguer">
+
+<!--são três pequenas partes que o CSS transforma nas três linhas:-->
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+<!-- o <main> cria o conteúdo principal do site, é tudo que está no centro da página: apresentação, terminal e cartões, A class="container" serve para o CSS controlar,
+ por exemplo, largura, espaçamento e posicionamento -->
+
+<main class="container">
+
+<!-- seção hero, com a class hero serve para conseguir estilizar esse elemento no CSS, <section> = cria uma seção do site, a classe hero normalmente é usada 
+para a primeira seção de destaque de um site. -->
+
+    <section class="hero">
+
+        <div class="hero-texto">
+            <h1> Olá, me chamo Tainá</h1> <!-- <h1> = cria um título grande, Olá, me chamo Tainá = texto que aparece. -->
+            <p> Sou estudante de Análise e Desenvolvimento de Sistemas, em processo de transição de carreira da área da saúde para a tecnologia. Formada em Biomedicina, atualmente, estou direcionando minha carreira para a área de TI, com foco no desenvolvimento de habilidades em programação e tecnologia. Tenho grande interesse em aprender, evoluir constantemente e atuar na construção de soluções tecnológicas.
+            </p>
+<!-- <div class="hero-botoes"> serve para conseguir estilizar esse elemento no CSS, <a> = cria um link, href="sobre.html" = diz para onde o link vai, 
+class="botao botao-primario" = permite estilizar no CSS, Sobre Mim = texto que aparece. -->
+
+                <div class="hero-botao">
+             <!--       
+                <a href="sobre.html" class="botao botao-primario">Sobre Mim</a>
+                -->
+
+                <a href="contato.html" class="botao-custom-3d"> Vamos conversar</a>          
+            </div>
+        </div>
+<!--div class="terminal" cria um terminal estilizado, com a class terminal serve para conseguir estilizar esse elemento no CSS, 
+<div> = cria uma divisão ou contêiner na página. -->
+
+        <div class="terminal">
+
+<!--div class="terminal-topo" cria a parte superior do terminal, com a class terminal-topo serve para conseguir estilizar esse elemento no CSS,É a "barra" superior do terminal -->
+            <div class="terminal-topo">
+<!-- -->
+                <span class="bolinha bolinha-vermelha"></span>
+                <span class="bolinha bolinha-amarela"></span>   
+                <span class="bolinha bolinha-verde"></span>
+                <span class="terminal-titulo">Taina.Franzoi</span>
+            </div>
+<!-- Aqui estão os textos que simulam comandos de terminal-->
+            <div class="terminal-corpo">
+            <p class="prompt"> quem sou eu </p>
+            <p class="saida">Tainá Lorena Franzoi</p>
+            <p class="prompt">conhecimentos</p>
+            <p class="saida">html - CSS - JavaScript</p>
+            <P class="prompt"> cidade</P>
+            <p class="saida">Campo Mourão, Paraná-Brasil</p>
+            <P class="prompt"></P>
+        </div>
+        </section>
+
+<!-- seção de cartões, com a class secao-cartao serve para conseguir estilizar esse elemento no CSS, <section> = cria uma seção do site. -->
+        <section class="secao-cartao">
+            <h2 class="secao-titulo">O que eu faço</h2>
+<!-- agrupa os cartões -->       
+            <div class="secao-cartoes">
+              <div class="cartao">
+                <h3> Estudante de ADS</h3>
+                <p>Formada em biomedicina, atualmente cursando graduação em análise e desenvolvimento de sistemas</p>
+              </div>  
+            
+              <div class="cartao">
+                <h3> Bootcamp4Girls</h3>
+                <p>noções básicas em HTML, CSS e JavaScript</p>
+              </div>  
+
+              <div class="cartao">
+                <h3> Transição de carreira</h3>
+                <p>Em busca da transição de carreira para a área da tecnologia</p>
+              </div>  
+
+            </div>
+
+        </section>
+</main>
+
+
+<!-- rodapé do site, com a class rodape serve para conseguir estilizar esse elemento no CSS, <footer> = cria o rodapé do site, <p> = cria um parágrafo-->
+
+<footer class="rodape">
+    <p>Feito com HTML, CSS e JavaScript - Bootcamp4Girls - Centro Universitário Integrado</p>
+</footer>
+
+
+<!-- conecta o arquivo Script.js ao HTML, <script> = cria um script, src="Script.js" = diz de onde vem o script, (carregue o arquivo JavaScript chamado Script.js.) -->
+
+<script src="Script.js"> </script>
+
+
+</body>
+
+</html>

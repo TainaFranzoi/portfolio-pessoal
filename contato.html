@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tainá Franzoi -  Contato</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+<body>
+
+ <div class="background-animado"></div>
+
+<header class="cabecalho">
+        <div class="cabecalho-conteudo">
+            <a href="index.html" class="logo">Taina Franzoi</a>
+
+            <nav class="menu">
+                <a href="index.html"> Início</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="contato.html" class="ativo">Contato</a>
+            </nav>
+
+            <div class="cabecalho-acoes">
+                <button class="botao-tema">🌙</button>
+                <button class="botao-hamburguer">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+            </div>
+        </div>
+        
+</header>
+
+        <main class="container">
+        <h1 class="contato-titulo"> Vamos conversar</h1>   
+
+        <div class="contato-grade">
+            <ul class="lista-contato">
+                <li><span>e-mail</span>taina.franzoi@gmail.com</li>
+                <li><span>linkedin</span>https://www.linkedin.com/in/tainafranzoi763146291/</li>
+                <li><span>github</span>github.com/taina-franzoi</li>
+            </ul>
+
+            <form class="formulario">
+                <div class="campo">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="name" placeholder="Como você se chama?">
+                </div>
+                <div class="campo">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com">
+                </div>
+                <div class="campo">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem aqui..."></textarea>
+                </div>
+                <button type="submit" class="botao botao-primario">Enviar mensagem</button>
+                <p class="mensagem-envio"></p>
+            </form>
+        </div>
+        </main>
+
+<footer class="rodape">
+    <p>Feito com HTML, CSS e JavaScript - Bootcamp4Girls - Centro Universitário Integrado</p>
+</footer>
+
+    <script src="Script.js"></script>
+    
+</body>
+</html>

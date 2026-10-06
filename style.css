@@ -1,0 +1,757 @@
+/*variáveis*/
+:root {
+    --cor-fundo: #F5F7FF;
+    --cor-superficie: #F1F4FA;
+    --cor-texto: #111827;
+    --cor-texto-suave: #4B5563;
+    --cor-borda: #DDE3F0;
+    --cor-destaque: #6D5DFB;
+    --cor-destaque-forte: #5146E5;
+    --cor-realce: #A78BFA;
+      
+
+    --fonte-titulo: 'Playfair Display', 'Segoe UI', sans-serif;
+    --fonte-texto: 'Inter', 'Segoe UI', sans-serif;
+    --fonte-codigo: 'JetBrains Mono', 'Courier New', monospace;
+
+    --raio: 10px;
+    --sombra: 0 10px 30px rgba(81, 70, 229, 0.10);
+}
+
+
+html.modo-escuro {
+    --cor-fundo: #0B1220;
+    --cor-superficie: #151D2E;
+    --cor-texto: #F8FAFC;
+    --cor-texto-suave: #CBD5E1;
+    --cor-borda: #334155;
+    --cor-destaque: #9185FF;
+    --cor-destaque-forte: #7567F5;
+    --cor-realce: #B8A8FF;
+
+    --sombra: 0 10px 35px rgba(0, 0, 0, 0.30);
+}
+
+/*reset do meu css*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.background-animado {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    z-index: -1;
+
+    background: linear-gradient(
+        135deg,
+        var(--cor-fundo),
+        var(--cor-destaque-forte),
+        var(--cor-fundo),
+        var(--cor-realce)
+    );
+
+    background-size: 400% 400%;
+
+    animation: movimentoFundo 25s ease infinite;
+}
+
+@keyframes movimentoFundo {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+
+}
+/* =========================
+   BODY
+========================= */
+
+
+
+body {
+    font-family: var(--fonte-texto);
+    color: var(--cor-texto);
+    line-height: 1.6;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+img {
+    max-width: 100%;
+    display:block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/*cabecalho*/
+
+.cabecalho {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: linear-gradient(
+        90deg,
+        #D2D7E8 0%,
+        #D9D3EB 50%,
+        #CEC9E3 100%
+    );
+
+    border-bottom: 1px solid #B8B3D0;
+
+    box-shadow: 0 4px 20px rgba(70, 60, 120, 0.14);
+}
+
+html.modo-escuro .cabecalho {
+    background: linear-gradient(
+        90deg,
+        #101426 0%,
+        #19152C 50%,
+        #12172A 100%
+    );
+
+    border-bottom: 1px solid #373252;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+.cabecalho-conteudo {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+ .logo {
+    font-family: var(--fonte-codigo);
+    font-size: 1.1rem;
+    font-weight: 700;  
+    color:var(--cor-destaque);
+ }
+
+ .cabecalho-acoes {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+ }
+ 
+.botao-tema {
+    background: none;
+    border: 1px solid var(--cor-borda);
+    border-radius: 100%;
+    font-size: 1rem;
+    width: 46px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+ }
+
+ .botao-hamburguer {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;   
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+ }
+
+ .botao-hamburguer span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--cor-texto);
+    border-radius: 2px;
+ }
+
+ .botao-hamburguer.aberto span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.botao-hamburguer.aberto span:nth-child(2) {
+    opacity: 0;
+}
+
+.botao-hamburguer.aberto span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+ .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 64px 24px;
+ }
+
+ .hero {
+    display: grid;
+    gap: 40px;
+    padding-top: 24px;
+    
+    /* Configurações para telas de computador */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Cria duas colunas automaticamente */
+    direction: rtl; 
+/*  Inverte a ordem das colunas (Terminal na esquerda, Texto na direita) */
+}
+
+/* resetar a direção dos textos dentro deles para o padrão da esquerda para a direita */
+.hero-texto, .terminal {
+    direction: ltr; 
+}
+
+.hero-texto h1 {
+    font-family: var(--fonte-titulo);
+    font-size: 2rem;
+    line-height: 1.15; 
+    margin-bottom: 16px;
+}
+
+.hero-texto p {
+    color: var(--cor-texto-suave);
+    margin-bottom: 28px;
+    text-align: justify;
+} 
+
+.hero .hero-botao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 32px;
+}
+
+/* 2. O BOTÃO COM EFEITO 3D E GRADIENTE */
+.hero .hero-botao .botao-custom-3d {
+    display: inline-block;
+    width: auto;
+    max-width: max-content;
+    padding: 14px 36px;
+    font-size: 1rem;
+    font-weight: 700; 
+    color: #000000; /* Letra escura para dar contraste no fundo claro */
+    text-decoration: none;
+    text-align: center;
+    border-radius: 8px;
+    
+    /* Cria o degradê do botão (do azul claro para o lilás) */
+    background: linear-gradient(135deg, #bbf2f6 0%, #cfc5f5 100%);
+    
+    /* Cria a borda escura fina ao redor do botão superior */
+    border: 1px solid var(--cor-borda);
+    
+    /* Sombra sólida (camada roxa de baixo) ajustada para o tamanho real do botão */
+    box-shadow: 6px 6px 0px var(--cor-destaque); 
+    
+    /* Transição suave para a animação */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+/* 3. EFEITO AO PASSAR O MOUSE (Hover) */
+.hero .hero-botao .botao-custom-3d:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0px var(--cor-destaque);
+}
+
+/* 4. EFEITO AO CLICAR (Active) */
+.hero .hero-botao .botao-custom-3d:active {
+    transform: translate(6px, 6px);
+    box-shadow: 0px 0px 0px var(--cor-destaque);
+}
+
+
+/* 5. REGRAS GERAIS PARA OUTROS BOTÕES DO SITE (Caso use nas páginas de contato/sobre) */
+.botao {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: var(--raio); 
+    font-weight: 600; 
+    text-decoration: none;
+}
+
+.botao-primario {
+    background-color: var(--cor-destaque);
+    color: #fff;
+}
+
+.botao-primario:hover {
+    background-color: var(--cor-destaque-forte);
+}
+
+/*
+.botao-secundario{
+    border:1px solid var(--cor-borda);
+    color: var(--cor-texto);
+}
+
+.botao-secundario:hover {
+    border-color: var(--cor-destaque);
+    color: var(--cor-destque);
+}
+*/
+
+.terminal {
+    border-color: var(--cor-superficie);
+    border: 1px solid  var(--cor-borda);
+    border-radius: var(--raio);
+    box-shadow: var(--sombra);
+    font-family: var(--fonte-codigo);
+    font-size: 0.9rem;
+}
+
+.terminal-topo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.bolinha{
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+}
+ .bolinha-vermelha {background-color: var(--cor-borda);}
+ .bolinha-amarela {background-color: var(--cor-destaque);}
+ .bolinha-verde {background-color: var(--cor-superficie)}
+
+ .terminal-titulo {
+    margin-left: 8px;
+    color: var(--cor-texto-suave);
+    font-size: 0.9rem;
+ }
+
+ .terminal-corpo {
+    padding: 20px;
+ }
+ 
+ .terminal-corpo p {
+    margin-bottom: 10px;
+ }
+
+ .terminal-corpo .prompt::before {
+    content: " </> "; 
+    color: var(--cor-destaque);
+    font-weight: bold;
+ }
+
+ .terminal .saida {
+    color: var(--cor-texto-suave);
+    padding-left: 18px;
+ }
+
+ .terminal-corpo .prompt:last-child::after {
+    content: "";
+    display: inline-block;
+    background-color: var(--cor-destaque);
+    width: 8px;
+    height: 1em;
+    margin-left: 4px;
+    animation: piscar 1s steps(1) infinite;
+ }
+
+ @keyframes piscar {
+    50% { opacity: 0; }
+ }
+
+ .secao-cartao {
+    margin-top: 80px;
+}
+
+.secao-titulo {
+    font-family: var(--fonte-titulo);
+    font-size: 1.6rem;
+    margin-bottom: 32px;
+}
+
+.secao-cartao .secao-cartoes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 32px;
+    padding: 20px 0;
+    width: 100%;
+}
+
+/* Transforma os cartões no estilo de caixinha 3D */
+.secao-cartao .secao-cartoes .cartao {
+    background: linear-gradient(135deg, #bbf2f6 0%, #cfc5f5 100%); /* Mesmo degradê do botão */
+    border: 1px solid var(--cor-borda); /* Mesma borda escura fina */
+    border-radius: 12px; /* Cantos arredondados combinando */
+    padding: 30px 24px;
+    text-align: left;
+    
+    /* A Sombra Sólida Roxa (Mesmo efeito 3D em camadas do botão) */
+    box-shadow: 6px 6px 0px var(--cor-destaque); 
+    
+    /* Transição suave para a animação de clique/hover */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    position: relative;
+}
+
+/* Ajusta as cores dos títulos dentro dos cartões para dar leitura no fundo claro */
+.secao-cartao .secao-cartoes .cartao h3 {
+    color: #1a1a2e;
+    font-family: var(--fonte-titulo);
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+/* Ajusta a cor do texto descritivo dos cartões */
+.secao-cartao .secao-cartoes .cartao p {
+    color: #333333; /* Grafite escuro para leitura confortável */
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/*  EFEITO HOVER: Faz o cartão afundar em direção à sombra */
+.secao-cartao .secao-cartoes .cartao:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0px var(--cor-destaque);
+}
+
+
+.sobre-titulo{
+    font-family: var(--fonte-titulo);
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.sobre-bio {
+    max-width: 65ch;
+    color: var(--cor-texto-suave);
+    margin-bottom: 40px;
+}
+
+.linha-tempo {
+    border-left: 2px solid var(--cor-borda);
+    padding-left: 24px;
+    margin-bottom: 48px;
+}
+
+.linha-tempo-item {
+    position: relative; 
+    margin-bottom: 32px;
+}
+
+.linha-tempo-item::before {
+    content: "";
+    position: absolute;
+    left: -30px;
+    top: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius :50%;
+    background-color: var(--cor-destaque);
+}
+
+.linha-tempo-item h4 {
+    font-family: var(--fonte-titulo);
+    margin-bottom: 4px;
+}
+
+.linha-tempo-item span {
+    color: var(--cor-texto-suave);
+    font-size: 0.85rem;
+}
+
+.habilidades-cartoes {
+    display:flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.habilidade {
+    font-family: var(--fonte-codigo);
+    font: size 0.85rem;
+    background-color: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: 999px;
+    padding: 8px 16px;
+}
+ .botao-tema:hover {
+    border-color: var(--cor-destaque);
+    transform: scale(1.06); 
+ }
+
+ .menu {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+ }
+
+ .menu a {
+    font-weight: 500;
+    padding: 6px 2px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
+ }
+
+ .menu a:hover, .menu a.ativo {
+    color: var(--cor-destaque);
+    border-color: var(--cor-destaque);
+ }
+
+main.container .contato-grade ul.lista-contato {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* 2. CONSTRUÇÃO DAS CAIXINHAS 3D */
+main.container .contato-grade .lista-contato li {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 24px;
+    
+    /* Degradê pastel idêntico ao do seu botão */
+    background: linear-gradient(135deg, #bbf2f6 0%, #cfc5f5 100%);
+    
+    /* Desenha a caixinha com a borda escura fina */
+    border: 1px solid #1a1a2e;
+    border-radius: 12px;
+    
+    /* Fontes estilo código */
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.95rem;
+    color: #1a1a2e; /* Letra escura para dar leitura no fundo claro */
+    word-break: break-all;
+    
+    /* A Sombra Sólida Roxa que cria a camada 3D de baixo */
+    box-shadow: 6px 6px 0px #7c3aed;
+    
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+}
+
+/* 3. OS RÓTULOS (E-MAIL, LINKEDIN, GITHUB) */
+main.container .contato-grade .lista-contato li span {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #7c3aed; /* Roxo para simular linguagem de programação */
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* 4. EFEITO HOVER (Faz a caixinha afundar igual ao botão) */
+main.container .contato-grade .lista-contato li:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0px #7c3aed;
+}
+
+
+/* 4. BOTÃO "ENVIAR MENSAGEM" 3D */
+.contato-grade .formulario .botao-primario {
+    display: inline-block;
+    width: auto;
+    padding: 14px 36px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    color: var(--cor-texto);
+    border: 1px solid var(--cor-principal);
+    border-radius: 8px;
+    background: linear-gradient(135deg,var(--cor-segunda) 0%, var(--cor-principal) 100%);
+    box-shadow: 6px 6px 0px var(--cor-principal);
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+.contato-grade .formulario .botao-primario:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0px var(--cor-principal);
+}
+
+.contato-grade .formulario .botao-primario:active {
+    transform: translate(6px, 6px);
+    box-shadow: 0px 0px 0px var(--cor-principal);
+}
+
+/* =======================
+ O FORMULÁRIO 
+   ====================== */
+
+/* Estiliza as caixas onde o usuário digita  */
+.contato-grade .formulario .campo input, 
+.contato-grade .formulario .campo textarea {
+    width: 100%;
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.5); /* Efeito vidro translúcido */
+    border: 1px solid var(--cor-principal);
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+    color: var(--cor-texto);
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+/* Quando o usuário clica para digitar, a caixa acende */
+.contato-grade .formulario .campo input:focus, 
+.contato-grade .formulario .campo textarea:focus {
+    background: #ffffff;
+    border-color: var(--cor-destaque);
+    box-shadow: 0 0 12px rgba(124, 58, 237, 0.2); /* Brilho neon sutil */
+}
+
+/* Estiliza os rótulos (Nome, E-mail, Mensagem) do formulário */
+.contato-grade .formulario .campo label {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    color: var(--cor-texto);
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* AJUSTE DO BOTÃO "ENVIAR MENSAGEM" PARA FICAR 3D */
+.contato-grade .formulario .botao-primario {
+    display: inline-block;
+    width: auto;
+    padding: 14px 36px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    color: var(--cor-texto);
+    border: 1px solid var(--cor-principal);
+    border-radius: 8px;
+    background: linear-gradient(135deg, #bbf2f6 0%, #cfc5f5 100%);
+    box-shadow: 6px 6px 0px var(--cor-destaque);
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+.contato-grade .formulario .botao-primario:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0px var(--cor-destaque);
+}
+
+.contato-grade .formulario .botao-primario:active {
+    transform: translate(6px, 6px);
+    box-shadow: 0px 0px 0px var(--cor-destaque);
+}
+.formulario label {
+    display: block;
+    margin-bottom: 6px;
+    font-family: var(--fonte-codigo);
+    font-size: 0.8rem;
+    color: var(--cor-texto-suave);
+}
+.formulario .campo {
+    margin-bottom: 20px;
+}
+
+.formulario input, .formulario textarea {
+    width: 100%;
+    padding: 12px 14px;
+    font-family: var(--fonte-texto);
+    font-size: 1rem;
+    color: var(--cor-texto);
+    background-color: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+    transition: border-color 0.2s ease;
+}
+
+.formulario input:focus, .formulario textarea:focus {
+    outline: none;
+    border-color: var(--cor-destaque);
+}
+
+.formulario textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.mensagem-envio {
+    display: none;
+    margin-top: 12px;
+    color: var(--cor-destaque-forte);
+    font-weight: 600;
+}
+
+.mensagem-envio.mostrar {
+    display:block;
+}
+
+
+/*rodapé*/
+.rodape {
+    border-top: 1px solid var(--cor-borda);
+    padding: 28px 24px;
+    text-align: center;
+    color: var(--cor-texto-suave);
+    font-size: 0.85rem;
+}
+
+/*estilização para mobile*/
+
+@media (max-width: 719px) {
+    .botao-hamburguer {
+        display:flex;
+    }
+    .menu {
+        position: absolute;
+        top:100%;
+        right: 0;
+        left: 0;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        background-color: var(--cor-superficie);
+        border-bottom: 1px solid var(--cor-borda);
+        display: none;
+        }
+
+    .menu.aberto {
+        display: flex;
+        max-height: 320px;
+        }
+
+    .menu a {
+        width: 100%;
+        padding:14px 24px;
+        border-bottom: 1px solid var (--cor-borda);
+    }    
+
+}
+
+@media (min-width: 720px) {
+    .hero {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+}
